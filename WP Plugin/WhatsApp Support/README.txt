@@ -2,8 +2,9 @@
 Contributors: Cotrox, GraficaRuleZ
 Tags: Chat, Support, WhatsApp, Supporto, Contact
 Donate link: https://www.paypal.com/paypalme/graficarulez
-Requires at least: 5.2
-Tested up to: 6
+Version: 0.1
+Requires at least: 6.0
+Tested up to: 6.0
 Requires PHP: 7.2
 License: GPL v2 or Later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

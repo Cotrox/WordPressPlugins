@@ -5,13 +5,12 @@
  * Plugin URI:        https://graficarulez.forumfree.it/
  * Description:       ChatSupport let you add a new and Fluent WhatsApp Support Button to your WordPress Website.
  * Version:           0.1
- * Requires at least: 5.2
+ * Requires at least: 6.0
  * Requires PHP:      7.2
  * Author:            Giuseppe Antonino Cotroneo | Cotrox
  * Author URI:        https://www.behance.net/Cotrox
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Update URI:        https://graficarulez.forumfree.it/
  * Text Domain:       Chat Support
  * Domain Path:       /languages
  */
@@ -116,7 +115,7 @@ function add_whatsapp_support(){
 
 <div id="whatsapp-business">
 	<a href="https://wa.me/<?php 
-		echo get_option( 'whatsapp_support_option_name' )['phone_number_0']
+		echo esc_html(get_option( 'whatsapp_support_option_name' )['phone_number_0'])
 	?>" class="whatsapp-business-icon"></a>
 </div>
 
