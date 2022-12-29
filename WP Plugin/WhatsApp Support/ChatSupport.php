@@ -110,7 +110,7 @@ if ( is_admin() )
 
  add_action( 'wp_footer', 'add_whatsapp_support' );
 
-function add_whatsapp_support(){
+function whatsapp_support_add(){
   ?>
 
 <div id="whatsapp-business">
