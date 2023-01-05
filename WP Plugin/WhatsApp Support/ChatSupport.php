@@ -4,8 +4,8 @@
  * Plugin Name:       ChatSupport
  * Plugin URI:        https://graficarulez.forumfree.it/
  * Description:       ChatSupport let you add a new and Fluent WhatsApp Support Button to your WordPress Website.
- * Version:           0.1
- * Requires at least: 6.0
+ * Version:           1.0.0
+ * Requires at least: 6.1
  * Requires PHP:      7.2
  * Author:            Giuseppe Antonino Cotroneo | Cotrox
  * Author URI:        https://www.behance.net/Cotrox
