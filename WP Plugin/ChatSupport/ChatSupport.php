@@ -18,27 +18,27 @@
  /* WhatsApp Support Plugin Settings Page */
 
  class WhatsAppSupport {
-	private $whatsapp_support_options;
+	private $chat_support_options;
 
 	public function __construct() {
-		add_action( 'admin_menu', array( $this, 'whatsapp_support_add_plugin_page' ) );
-		add_action( 'admin_init', array( $this, 'whatsapp_support_page_init' ) );
+		add_action( 'admin_menu', array( $this, 'chat_support_add_plugin_page' ) );
+		add_action( 'admin_init', array( $this, 'chat_support_page_init' ) );
 	}
 
-	public function whatsapp_support_add_plugin_page() {
+	public function chat_support_add_plugin_page() {
 		add_menu_page(
 			'WhatsApp Support', // page_title
 			'WA Support', // menu_title
 			'manage_options', // capability
 			'whatsapp-support', // menu_slug
-			array( $this, 'whatsapp_support_create_admin_page' ), // function
+			array( $this, 'chat_support_create_admin_page' ), // function
 			'dashicons-format-status', // icon_url
 			2 // position
 		);
 	}
 
-	public function whatsapp_support_create_admin_page() {
-		$this->whatsapp_support_options = get_option( 'whatsapp_support_option_name' ); ?>
+	public function chat_support_create_admin_page() {
+		$this->chat_support_options = get_option( 'chat_support_option_name' ); ?>
 
 		<div class="wrap">
 			<h2>WhatsApp Support</h2>
@@ -47,7 +47,7 @@
 
 			<form method="post" action="options.php">
 				<?php
-					settings_fields( 'whatsapp_support_option_group' );
+					settings_fields( 'chat_support_option_group' );
 					do_settings_sections( 'whatsapp-support-admin' );
 					submit_button();
 				?>
@@ -55,17 +55,17 @@
 		</div>
 	<?php }
 
-	public function whatsapp_support_page_init() {
+	public function chat_support_page_init() {
 		register_setting(
-			'whatsapp_support_option_group', // option_group
-			'whatsapp_support_option_name', // option_name
-			array( $this, 'whatsapp_support_sanitize' ) // sanitize_callback
+			'chat_support_option_group', // option_group
+			'chat_support_option_name', // option_name
+			array( $this, 'chat_support_sanitize' ) // sanitize_callback
 		);
 
 		add_settings_section(
-			'whatsapp_support_setting_section', // id
+			'chat_support_setting_section', // id
 			'Settings', // title
-			array( $this, 'whatsapp_support_section_info' ), // callback
+			array( $this, 'chat_support_section_info' ), // callback
 			'whatsapp-support-admin' // page
 		);
 
@@ -74,11 +74,11 @@
 			'Phone Number', // title
 			array( $this, 'phone_number_0_callback' ), // callback
 			'whatsapp-support-admin', // page
-			'whatsapp_support_setting_section' // section
+			'chat_support_setting_section' // section
 		);
 	}
 
-	public function whatsapp_support_sanitize($input) {
+	public function chat_support_sanitize($input) {
 		$sanitary_values = array();
 		if ( isset( $input['phone_number_0'] ) ) {
 			$sanitary_values['phone_number_0'] = sanitize_text_field( $input['phone_number_0'] );
@@ -87,35 +87,35 @@
 		return $sanitary_values;
 	}
 
-	public function whatsapp_support_section_info() {
+	public function chat_support_section_info() {
 		
 	}
 
 	public function phone_number_0_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="whatsapp_support_option_name[phone_number_0]" id="phone_number_0" value="%s">',
-			isset( $this->whatsapp_support_options['phone_number_0'] ) ? esc_attr( $this->whatsapp_support_options['phone_number_0']) : ''
+			'<input class="regular-text" type="text" name="chat_support_option_name[phone_number_0]" id="phone_number_0" value="%s">',
+			isset( $this->chat_support_options['phone_number_0'] ) ? esc_attr( $this->chat_support_options['phone_number_0']) : ''
 		);
 	}
 
 }
 if ( is_admin() )
-	$whatsapp_support = new WhatsAppSupport();
+	$chat_support = new WhatsAppSupport();
 
 /*
  * Retrieve this value with:
- * $whatsapp_support_options = get_option( 'whatsapp_support_option_name' ); // Array of All Options
- * $phone_number_0 = $whatsapp_support_options['phone_number_0']; // Phone Number
+ * $chat_support_options = get_option( 'chat_support_option_name' ); // Array of All Options
+ * $phone_number_0 = $chat_support_options['phone_number_0']; // Phone Number
  */
 
- add_action( 'wp_footer', 'add_whatsapp_support' );
+ add_action( 'wp_footer', 'add_chat_support' );
 
-function whatsapp_support_add(){
+function chat_support_add(){
   ?>
 
 <div id="whatsapp-business">
 	<a href="https://wa.me/<?php 
-		echo esc_html(get_option( 'whatsapp_support_option_name' )['phone_number_0'])
+		echo esc_html(get_option( 'chat_support_option_name' )['phone_number_0'])
 	?>" class="whatsapp-business-icon"></a>
 </div>
 

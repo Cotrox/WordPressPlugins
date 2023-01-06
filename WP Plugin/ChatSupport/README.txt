@@ -10,10 +10,10 @@ Requires PHP: 7.2
 License: GPL v2 or Later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add a new and Fluent WhatsApp Support Button to your WordPress Website.
+Add a new and Fluent WhatsApp Chat Support Button to your WordPress Website.
 
 == Description ==
-Add a new and Fluent WhatsApp Support Button to your WordPress Website.
+Add a new and Fluent WhatsApp Chat Support Button to your WordPress Website.
 
 == Installation ==
 Find our Plugin on WordPress and just press the Install button to let WordPress install it for you on your Website. Then press 'Activate' to switch it on.
